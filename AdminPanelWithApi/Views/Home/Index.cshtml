@@ -1,0 +1,68 @@
+﻿@model HomeModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">    
+   
+    <div class="col-xl-4 col-lg-6 col-12">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="media">
+                        <div class="media-body text-left">
+                            <h3 class="mb-1 primary">@Model.PartnersCount</h3>
+                            <span>الشركاء</span>
+                        </div>
+                        <div class="media-right align-self-center">
+                            <i class="ft-life-buoy primary font-large-2 float-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-4 col-lg-6 col-12">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="media">
+                        <div class="media-body text-left">
+                            <h3 class="mb-1 primary">@Model.ServicesCount</h3>
+                            <span>الخدمات</span>
+                        </div>
+                        <div class="media-right align-self-center">
+                            <i class="ft-book-open primary font-large-2 float-right"></i>
+                        </div>
+                    </div>
+                    <div class="progress" style="height: 4px;">
+                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="80" aria-valuemin="80" aria-valuemax="100" style="width:80%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-12">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="media">
+                        <div class="media-body text-left">
+                            <h3 class="mb-1 warning">@Model.ContactUsCount</h3>
+                            <span>تواصل معنا</span>
+                        </div>
+                        <div class="media-right align-self-center">
+                            <i class="ft-message-square warning font-large-2 float-right"></i>
+                        </div>
+                    </div>
+                    <div class="progress" style="height: 4px;">
+                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="35" aria-valuemin="35" aria-valuemax="100" style="width:35%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+   
+</div>

@@ -1,0 +1,43 @@
+﻿@model Domain.Entities.SocialMedia
+
+<div class="row custom-form-container">
+    <div class="col-12">
+        <div class="content-header">تعديل بيانات السوشيال ميديا</div>
+    </div>
+</div>
+
+<section id="basic-hidden-label-form-layouts">
+    <div class="row match-height custom-form-container">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-body">
+                        <form asp-action="Edit" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Title" class="control-label">العنوان</label>
+                                <input asp-for="Title" class="form-control" disabled />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Link" class="control-label">الرابط</label>
+                                <input asp-for="Link" class="form-control" />
+                                <span asp-validation-for="Link" class="text-danger"></span>
+                            </div>
+                            <input type="hidden" asp-for="Id" />
+
+                            <div class="form-group">
+                                <input type="submit" value="حفظ" class="btn btn-primary" />
+                                <a asp-action="Index" class="btn btn-secondary"><i class="ft-x mr-1"></i>الرجوع</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,25 @@
+﻿@model Domain.Entities.SocialMedia
+
+<h3>هل انت متأكد من الحذف?</h3>
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            العنوان
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            الرابط
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Link)
+        </dd>        
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="حذف" class="btn btn-danger" /> |
+        <a asp-action="Index">الرجوع للخلف</a>
+    </form>
+</div>

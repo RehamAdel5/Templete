@@ -1,0 +1,45 @@
+﻿@model Domain.Entities.Setting
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutDashBoard.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Setting</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CondtionAr" class="control-label"></label>
+                <input asp-for="CondtionAr" class="form-control" />
+                <span asp-validation-for="CondtionAr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CondtionEn" class="control-label"></label>
+                <input asp-for="CondtionEn" class="form-control" />
+                <span asp-validation-for="CondtionEn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

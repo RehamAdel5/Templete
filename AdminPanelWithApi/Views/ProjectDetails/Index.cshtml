@@ -1,0 +1,55 @@
+﻿@model Application.Handeler.CQRS.ProjectDetails.Queries.GetProjectDetailsViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDashBoard.cshtml";
+}
+
+
+
+
+} <!-- Project Details Section --> <section id="project-details" class="project-details section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="project-details-slider swiper init-swiper">
+                    <script type="application/json" class="swiper-config">
+
+                        { "loop": true, "speed": 600,
+                        "autoplay": { "delay": 5000 },
+                        "slidesPerView": "auto",
+                        "pagination": { "el": ".swiper-pagination",
+                        "type": "bullets"
+                        , "clickable": true } }
+                    </script>
+                    <div class="swiper-wrapper align-items-center">
+                        @foreach (var image in ViewBag.ProjectImages)
+                        {
+                            <div class="swiper-slide"> <img src="~/@image.ImagePath" alt="Project Image"> </div>
+                        }
+                    </div>
+                    <div class="swiper-pagination">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+
+                <div class="project-info" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Project Information</h3>
+
+                    <ul>
+                        <li><strong>Project Name</strong>: @Model.ProjectName</li>
+                        <li><strong>Start Date</strong>:  @Model.StartDate.ToString("dd MMMM, yyyy")</li>
+                        <li><strong>End Date</strong>:  @Model.EndDate.ToString("dd MMMM, yyyy")</li>
+                        <li><strong>Category</strong>:  @Model.CategoryName</li>
+                        <li><strong>Project URL</strong>: <a href=" @Model.URL"> @Model.URL</a></li>
+                    </ul>
+                    <div class="project-description" data-aos="fade-up" data-aos-delay="300">
+                        <h2>Project Description</h2> <p> @Model.Description</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /Project Details Section -->

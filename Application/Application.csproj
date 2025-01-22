@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\Commands\Auth\DeleteUser\" />
+    <Folder Include="Handlers\Commands\Auth\Logout\" />
+    <Folder Include="Handlers\CQRS\AboutUs\Commands\" />
+    <Folder Include="Handlers\CQRS\AskedQuestion\Commands\" />
+    <Folder Include="Handlers\CQRS\ContactUs\Commands\" />
+    <Folder Include="Handlers\CQRS\Features\Commands\" />
+    <Folder Include="Handlers\CQRS\HorizontalSlider\Commands\" />
+    <Folder Include="Handlers\CQRS\ProjectCategory\Commands\" />
+    <Folder Include="Handlers\CQRS\ProjectDetails\Commands\" />
+    <Folder Include="Handlers\CQRS\Project\Commands\" />
+    <Folder Include="Handlers\CQRS\Service\Commands\" />
+    <Folder Include="Handlers\CQRS\Skills\Commands\" />
+    <Folder Include="Handlers\CQRS\Team\Commands\" />
+    <Folder Include="Handlers\CQRS\Testimonial\Commands\" />
+    <Folder Include="Handlers\CQRS\WhyUs\Commands\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+  </ItemGroup>
+
+</Project>

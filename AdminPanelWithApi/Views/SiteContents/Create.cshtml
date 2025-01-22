@@ -1,0 +1,89 @@
+﻿@using Domain.Enums
+@model Domain.Entities.SiteContent
+
+<div class="row custom-form-container">
+    <div class="col-12">
+        <div class="content-header">أضف محتوى النصوص</div>
+    </div>
+</div>
+<section id="basic-hidden-label-form-layouts">
+    <div class="row match-height custom-form-container">
+        <div class="col-12" >
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-body">
+                        <form asp-action="Create" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="TitleAr" class="control-label">العنوان عربي</label>
+                                <input asp-for="TitleAr" class="form-control" />
+                                <span asp-validation-for="TitleAr" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="TitleEn" class="control-label">العنوان انجليزى</label>
+                                <input asp-for="TitleEn" class="form-control" dir="ltr" />
+                                <span asp-validation-for="TitleEn" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="SubTitleAr" class="control-label">العنوان الفرعى عربي</label>
+                                <input asp-for="SubTitleAr" class="form-control" />
+                                <span asp-validation-for="SubTitleAr" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="SubTitleEn" class="control-label">العنوان الفرعى انجليزى</label>
+                                <input asp-for="SubTitleEn" class="form-control" dir="ltr" />
+                                <span asp-validation-for="SubTitleEn" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DescAr" class="control-label">وصف عربي</label>
+                                <textarea asp-for="DescAr" class="form-control" type="textarea" rows="5" ></textarea>
+                                <span asp-validation-for="DescAr" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DescEn" class="control-label">وصف انجليزى</label>
+                                <textarea asp-for="DescEn" class="form-control" dir="ltr" type="textarea" rows="5" ></textarea>
+                                <span asp-validation-for="DescEn" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Link" class="control-label">الرابط</label>
+                                <input asp-for="Link" class="form-control" />
+                                <span asp-validation-for="Link" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Page" class="control-label">الصفحة</label>
+                                <select asp-for="Page" class="form-control" asp-items="Html.GetEnumSelectList<Page>()">
+                                </select>
+                                <span asp-validation-for="Page" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Position" class="control-label">الموقع</label>
+                                <input asp-for="Position" class="form-control" />
+                                <span asp-validation-for="Position" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Img" class="control-label">الصورة</label>
+                                <input type="file" accept="image/*" id="Img" name="Img" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Video1File" class="control-label">فديو1</label>
+                                <input type="file" accept="video/*" id="Video1File" name="Video1File" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Video2File" class="control-label">فديو2</label>
+                                <input type="file" accept="video/*" id="Video2File" name="Video2File" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="اضافة" class="btn btn-primary" />
+                                <a asp-action="Index" class="btn btn-secondary"><i class="ft-x mr-1"></i>الرجوع</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

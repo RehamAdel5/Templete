@@ -1,0 +1,68 @@
+﻿@model Domain.Entities.Tag
+
+
+<div class="row custom-form-container">
+    <div class="col-12">
+        <div class="content-header">هل انت متأكد من الحذف؟</div>
+    </div>
+</div>
+<section>
+    <div class="row match-height custom-form-container">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.NameEn)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.NameEn)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.NameAr)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.NameAr)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.PropertyEn)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.PropertyEn)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.PropertyAr)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.PropertyAr)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.ContentEn)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.ContentEn)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.ContentAr)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.ContentAr)
+                            </dd>
+
+                        </dl>
+
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="Id" />
+                            <div class="form-group mt-4">
+                                <button type="submit" class="btn btn-danger mr-2"><i class="fa fa-trash mr-1"></i>حذف</button>
+                                <a asp-action="Index" class="btn btn-secondary"><i class="ft-x mr-1"></i>الرجوع</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
