@@ -19,14 +19,14 @@ namespace AdminPanelWithApi.Controllers
         // GET: Settings
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Settings.ToListAsync());
+            return View("~/Views/AdminPanel/Settings/Index.cshtml", await _context.Settings.ToListAsync());
         }
        
 
         // GET: Settings/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/Settings/Create.cshtml");
         }
 
         // POST: Settings/Create
@@ -43,7 +43,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(setting);
+            return View("~/Views/AdminPanel/Settings/Create.cshtml", setting);
         }
 
         // GET: Settings/Edit/5
@@ -59,7 +59,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(setting);
+            return View("~/Views/AdminPanel/Settings/Edit.cshtml", setting);
         }
 
         // POST: Settings/Edit/5
@@ -94,7 +94,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(setting);
+            return View("~/Views/AdminPanel/Settings/Edit.cshtml", setting);
         }
 
         // GET: Settings/Delete/5
@@ -112,7 +112,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(setting);
+            return View("~/Views/AdminPanel/Settings/Delete.cshtml", setting);
         }
 
         // POST: Settings/Delete/5

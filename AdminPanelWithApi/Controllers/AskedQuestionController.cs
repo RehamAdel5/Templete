@@ -17,7 +17,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: AskedQuestion
         public async Task<IActionResult> Index()
         {
-            return View(await _context.AskedQuestions.ToListAsync());
+            return View("~/Views/AdminPanel/AskedQuestion/Index.cshtml",await _context.AskedQuestions.ToListAsync());
         }
 
         // GET: AskedQuestion/Details/5
@@ -35,13 +35,13 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(askedQuestion);
+            return View("~/Views/AdminPanel/AskedQuestion/Details.cshtml", askedQuestion);
         }
 
         // GET: AskedQuestion/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/AskedQuestion/Create.cshtml");
         }
 
         // POST: AskedQuestion/Create
@@ -57,7 +57,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(askedQuestion);
+            return View("~/Views/AdminPanel/AskedQuestion/Create.cshtml", askedQuestion);
         }
 
         // GET: AskedQuestion/Edit/5
@@ -73,7 +73,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(askedQuestion);
+            return View("~/Views/AdminPanel/AskedQuestion/Edit.cshtml",askedQuestion);
         }
 
         // POST: AskedQuestion/Edit/5
@@ -108,7 +108,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(askedQuestion);
+            return View("~/Views/AdminPanel/AskedQuestion/Edit.cshtml",askedQuestion);
         }
 
         // GET: AskedQuestion/Delete/5
@@ -126,7 +126,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(askedQuestion);
+            return View("~/Views/AdminPanel/AskedQuestion/Delete.cshtml",askedQuestion);
         }
 
         // POST: AskedQuestion/Delete/5

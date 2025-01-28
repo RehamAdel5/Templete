@@ -8,6 +8,7 @@ using System.Diagnostics;
 namespace AdminPanelWithApi.Controllers
 {
     [Authorize(Roles = "Admin")]
+   
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -25,12 +26,12 @@ namespace AdminPanelWithApi.Controllers
                 PartnersCount = _context.Partners.AsNoTracking().Count(),
                 ServicesCount = _context.Services.AsNoTracking().Count()
             };
-            return View(homeModel);
+            return View("~/Views/AdminPanel/Home/Index.cshtml", homeModel);  
         }
 
         public IActionResult Privacy()
         {
-            return View();
+            return View("~/Views/AdminPanel/Home/Privacy.cshtml");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

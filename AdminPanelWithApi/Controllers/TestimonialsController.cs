@@ -17,7 +17,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: Testimonials
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Testimonials.ToListAsync());
+            return View("~/Views/AdminPanel/Testimonials/Index.cshtml", await _context.Testimonials.ToListAsync());
         }
 
         // GET: Testimonials/Details/5
@@ -35,13 +35,13 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(testimonial);
+            return View("~/Views/AdminPanel/Testimonials/Details.cshtml", testimonial);
         }
 
         // GET: Testimonials/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/Testimonials/Create.cshtml");
         }
 
         // POST: Testimonials/Create
@@ -57,7 +57,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(testimonial);
+            return View("~/Views/AdminPanel/Testimonials/Create.cshtml", testimonial);
         }
 
         // GET: Testimonials/Edit/5
@@ -73,7 +73,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(testimonial);
+            return View("~/Views/AdminPanel/Testimonials/Edit.cshtml", testimonial);
         }
 
         // POST: Testimonials/Edit/5
@@ -108,7 +108,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(testimonial);
+            return View("~/Views/AdminPanel/Testimonials/Edit.cshtml", testimonial);
         }
 
         // GET: Testimonials/Delete/5
@@ -126,7 +126,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(testimonial);
+            return View("~/Views/AdminPanel/Testimonials/Delete.cshtml", testimonial);
         }
 
         // POST: Testimonials/Delete/5

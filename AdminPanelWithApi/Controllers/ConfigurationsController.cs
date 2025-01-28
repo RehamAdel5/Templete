@@ -17,7 +17,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: Configurations
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Configurations.ToListAsync());
+            return View("~/Views/AdminPanel/Configurations/Index.cshtml",await _context.Configurations.ToListAsync());
         }
 
         // GET: Configurations/Edit/5
@@ -33,7 +33,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(configuration);
+            return View("~/Views/AdminPanel/Configurations/Edit.cshtml",configuration);
         }
 
         // POST: Configurations/Edit/5
@@ -74,7 +74,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(configuration);
+            return View("~/Views/AdminPanel/Configurations/Edit.cshtml",configuration);
         }
 
 

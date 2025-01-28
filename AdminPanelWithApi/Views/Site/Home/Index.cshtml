@@ -6,41 +6,41 @@
 }
 
 <section id="hero" class="hero section dark-background">
-    @await Html.PartialAsync("_CompanyInformation")
+    @await Html.PartialAsync("~/Views/Site/Home/_CompanyInformation.cshtml")
 </section>
 <section id="clients" class="clients section light-background">
-    @await Html.PartialAsync("_HorizontalSlider", Model.HorizontalSliderList)
+    @await Html.PartialAsync("~/Views/Site/Home/_HorizontalSlider.cshtml", Model.HorizontalSliderList)
 </section>
 <section id="about" class="about section">
-    @await Html.PartialAsync("_About",Model.AboutList)
+    @await Html.PartialAsync("~/Views/Site/Home/_About.cshtml", Model.AboutList)
 </section>
 <section id="why-us" class="section why-us light-background" data-builder="section">
-    @await Html.PartialAsync("_WhyUs",Model.WhyUsList)
+    @await Html.PartialAsync("~/Views/Site/Home/_WhyUs.cshtml", Model.WhyUsList)
 </section>
 <section id="skills" class="skills section">
-    @await Html.PartialAsync("_Skills",Model.SkillsList)
+    @await Html.PartialAsync("~/Views/Site/Home/_Skills.cshtml", Model.SkillsList)
 </section>
 <section id="services" class="services section light-background">
-    @await Html.PartialAsync("_Services",Model.ServicesList)
+    @await Html.PartialAsync("~/Views/Site/Home/_Services.cshtml", Model.ServicesList)
 </section>
 @* <section id="call-to-action" class="call-to-action section dark-background">
     @await Html.PartialAsync("_CallToAction")
 </section> *@
 <section id="portfolio" class="portfolio section"> 
-    @await Html.PartialAsync("_Projects", Model.ProjectList)
+    @await Html.PartialAsync("~/Views/Site/Home/_Projects.cshtml", Model.ProjectList)
 </section>
 <section id="team" class="team section">
-    @await Html.PartialAsync("_Team", Model.TeamList)
+    @await Html.PartialAsync("~/Views/Site/Home/_Team.cshtml", Model.TeamList)
 </section>
 <section id="pricing" class="pricing section light-background">
-    @await Html.PartialAsync("_Pricing",Model.FeaturesList)
+    @await Html.PartialAsync("~/Views/Site/Home/_Pricing.cshtml", Model.FeaturesList)
 </section>
 <section id="testimonials" class="testimonials section">
-    @await Html.PartialAsync("_Testimonials",Model.TestimonialList)
+    @await Html.PartialAsync("~/Views/Site/Home/_Testimonials.cshtml", Model.TestimonialList)
 </section>
 <section id="faq-2" class="faq-2 section light-background">
-    @await Html.PartialAsync("_AskedQuestions",Model.AskedQuestionList)
+    @await Html.PartialAsync("~/Views/Site/Home/_AskedQuestions.cshtml", Model.AskedQuestionList)
 </section>
 <section id="contact" class="contact section">
-    @await Html.PartialAsync("_ContactUs",Model.ContactUs)
+    @await Html.PartialAsync("~/Views/Site/Home/_ContactUs.cshtml", Model.ContactUs)
 </section>

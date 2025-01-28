@@ -105,64 +105,64 @@ namespace HomeController.Controllers
                 p.Price,
                 p.PriceId
             }).Distinct().ToList();
-            return View(viewModel);
+            return View("~/Views/Site/Home/Index.cshtml", viewModel);
         }
         public async Task<PartialViewResult> GetHorizontalSliders()
         {
             var sliders = await _horizontalSliderRepository.GetHorizontalSliderAsync();
-            return PartialView("_HorizontalSlider", sliders);
+            return PartialView("~/Views/Site/Home/_HorizontalSlider", sliders);
         }
         public async Task<PartialViewResult> GetAbout()
         {
             var about = await _aboutRepository.GetAboutAsync();
-            return PartialView("_About", about);
+            return PartialView("~/Views/Site/Home/_About", about);
         }
         public async Task<PartialViewResult> GetWhyUs()
         {
             var whyUs = await _whyUsRepository.GetWhyUsAsync();
-            return PartialView("_WhyUs", whyUs);
+            return PartialView("~/Views/Site/Home/_WhyUs", whyUs);
         }
         public async Task<PartialViewResult> GetSkills()
         {
             var skills = await _skillsRepository.GetSkillsAsync();
-            return PartialView("_Skills", skills);
+            return PartialView("~/Views/Site/Home/_Skills", skills);
         }
         public async Task<PartialViewResult> GetServices()
         {
             var services = await _servicesRepository.GetServicesAsync();
-            return PartialView("_Services", services);
+            return PartialView("~/Views/Site/Home/_Services", services);
         }
 
         public async Task<PartialViewResult> GetProjects()
         {
             var projects = await _projectsRepository.GetProjectsAsync();
-            return PartialView("_Projects", projects);
+            return PartialView("~/Views/Site/Home/_Projects", projects);
         }
         public async Task<PartialViewResult> GetTeam()
         {
             var teams = await _teamRepository.GetTeamAsync();
-            return PartialView("_Team", teams);
+            return PartialView("~/Views/Site/Home/_Team", teams);
         }
         public async Task<PartialViewResult> GetFeatures()
         {
             var features = await _featuresRepository.GetFeaturesAsync();
-            return PartialView("_Pricing", features);
+            return PartialView("~/Views/Site/Home/_Pricing", features);
         }
         public async Task<PartialViewResult> GetTestimonials()
         {
             var testimonials = await _testimonialRepository.GetTestimonialAsync();
-            return PartialView("_Testimonials", testimonials);
+            return PartialView("~/Views/Site/Home/_Testimonials", testimonials);
         }
         public async Task<PartialViewResult> GetAskedQuestions()
         {
             var askedQuestions = await _askedQuestionRepository.GetAskedQuestionAsync();
-            return PartialView("_AskedQuestions", askedQuestions);
+            return PartialView("~/Views/Site/Home/_AskedQuestions", askedQuestions);
         }
         public async Task<PartialViewResult> GetContactUs()
         {
             var contactUs = await _contactUsRepository.GetContactUsAsync();
 
-            return PartialView("_ContactUs", contactUs);
+            return PartialView("~/Views/Site/Home/_ContactUs", contactUs);
         }
     }
 }

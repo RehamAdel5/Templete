@@ -21,7 +21,7 @@ namespace Infrastructure.Persistence.Data
         public ApplicationDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=templeteDB;User ID=adminTemplete;Password=00000;MultipleActiveResultSets=true;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-1RHRIEA;Database=TemplateDb;User Id=myNewUser;password=12345;TrustServerCertificate=True;MultipleActiveResultSets=true;");
 
             return new ApplicationDbContext(optionsBuilder.Options,_cache);
         }

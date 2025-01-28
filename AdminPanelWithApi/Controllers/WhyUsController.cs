@@ -17,7 +17,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: WhyUs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.WhyUs.ToListAsync());
+            return View("~/Views/AdminPanel/WhyUs/Index.cshtml", await _context.WhyUs.ToListAsync());
         }
 
         // GET: WhyUs/Details/5
@@ -35,13 +35,13 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(whyUs);
+            return View("~/Views/AdminPanel/WhyUs/Details.cshtml", whyUs);
         }
 
         // GET: WhyUs/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/WhyUs/Create.cshtml");
         }
 
         // POST: WhyUs/Create
@@ -57,7 +57,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(whyUs);
+            return View("~/Views/AdminPanel/WhyUs/Create.cshtml", whyUs);
         }
 
         // GET: WhyUs/Edit/5
@@ -73,7 +73,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(whyUs);
+            return View("~/Views/AdminPanel/WhyUs/Edit.cshtml", whyUs);
         }
 
         // POST: WhyUs/Edit/5
@@ -108,7 +108,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(whyUs);
+            return View("~/Views/AdminPanel/WhyUs/Edit.cshtml", whyUs);
         }
 
         // GET: WhyUs/Delete/5
@@ -126,7 +126,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(whyUs);
+            return View("~/Views/AdminPanel/WhyUs/Delete.cshtml", whyUs);
         }
 
         // POST: WhyUs/Delete/5

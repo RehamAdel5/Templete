@@ -25,7 +25,7 @@ namespace AdminPanelWithApi.Controllers
                     p.CategoryName
                 }).Distinct()
                 .ToList();
-            return View(categoryList);
+            return View("~/Views/AdminPanel/ProjectCategory/Index.cshtml", categoryList);
         }
         public IActionResult GetProjectCategory()
         {

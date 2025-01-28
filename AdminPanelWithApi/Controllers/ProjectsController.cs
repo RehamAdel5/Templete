@@ -19,7 +19,7 @@ namespace AdminPanelWithApi.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Projects.Include(p => p.ProjectCategory);
-            return View(await applicationDbContext.ToListAsync());
+            return View("~/Views/AdminPanel/Projects/Index.cshtml", await applicationDbContext.ToListAsync());
         }
 
         // GET: Projects/Details/5
@@ -38,14 +38,14 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(project);
+            return View("~/Views/AdminPanel/Projects/Details.cshtml", project);
         }
 
         // GET: Projects/Create
         public IActionResult Create()
         {
             ViewData["ProjectCategoryId"] = new SelectList(_context.ProjectCategories, "Id", "Id");
-            return View();
+            return View("~/Views/AdminPanel/Projects/Create.cshtml");
         }
 
         // POST: Projects/Create
@@ -62,7 +62,7 @@ namespace AdminPanelWithApi.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProjectCategoryId"] = new SelectList(_context.ProjectCategories, "Id", "Id", project.ProjectCategoryId);
-            return View(project);
+            return View("~/Views/AdminPanel/Projects/Create.cshtml", project);
         }
 
         // GET: Projects/Edit/5
@@ -79,7 +79,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
             ViewData["ProjectCategoryId"] = new SelectList(_context.ProjectCategories, "Id", "Id", project.ProjectCategoryId);
-            return View(project);
+            return View("~/Views/AdminPanel/Projects/Edit.cshtml", project);
         }
 
         // POST: Projects/Edit/5
@@ -115,7 +115,7 @@ namespace AdminPanelWithApi.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProjectCategoryId"] = new SelectList(_context.ProjectCategories, "Id", "Id", project.ProjectCategoryId);
-            return View(project);
+            return View("~/Views/AdminPanel/Projects/Edit.cshtml", project);
         }
 
         // GET: Projects/Delete/5
@@ -134,7 +134,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(project);
+            return View("~/Views/AdminPanel/Projects/Delete.cshtml", project);
         }
 
         // POST: Projects/Delete/5

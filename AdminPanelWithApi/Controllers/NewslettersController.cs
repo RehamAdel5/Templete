@@ -17,7 +17,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: Newsletters
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Newsletters.ToListAsync());
+            return View("~/Views/AdminPanel/Newsletters/Index.cshtml", await _context.Newsletters.ToListAsync());
         }
 
         // GET: Newsletters/Details/5
@@ -35,13 +35,13 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(newsletter);
+            return View("~/Views/AdminPanel/Newsletters/Details.cshtml", newsletter);
         }
 
         // GET: Newsletters/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/Newsletters/Create.cshtml");
         }
 
         // POST: Newsletters/Create
@@ -57,7 +57,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(newsletter);
+            return View("~/Views/AdminPanel/Newsletters/Create.cshtml", newsletter);
         }
 
         // GET: Newsletters/Edit/5
@@ -73,7 +73,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(newsletter);
+            return View("~/Views/AdminPanel/Newsletters/Edit.cshtml", newsletter);
         }
 
         // POST: Newsletters/Edit/5
@@ -108,7 +108,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(newsletter);
+            return View("~/Views/AdminPanel/Newsletters/Edit.cshtml", newsletter);
         }
 
         // GET: Newsletters/Delete/5
@@ -126,7 +126,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(newsletter);
+            return View("~/Views/AdminPanel/Newsletters/Delete.cshtml", newsletter);
         }
 
         // POST: Newsletters/Delete/5

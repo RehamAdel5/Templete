@@ -24,7 +24,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: Partners
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Partners.ToListAsync());
+            return View("~/Views/AdminPanel/Partners/Index.cshtml", await _context.Partners.ToListAsync());
         }
 
         

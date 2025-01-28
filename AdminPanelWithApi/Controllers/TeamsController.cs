@@ -17,7 +17,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: Teams
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Teams.ToListAsync());
+            return View("~/Views/AdminPanel/Teams/Index.cshtml", await _context.Teams.ToListAsync());
         }
 
         // GET: Teams/Details/5
@@ -35,13 +35,13 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(team);
+            return View("~/Views/AdminPanel/Teams/Details.cshtml", team);
         }
 
         // GET: Teams/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/Teams/Create.cshtml");
         }
 
         // POST: Teams/Create
@@ -57,7 +57,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(team);
+            return View("~/Views/AdminPanel/Teams/Create.cshtml", team);
         }
 
         // GET: Teams/Edit/5
@@ -73,7 +73,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(team);
+            return View("~/Views/AdminPanel/Teams/Edit.cshtml", team);
         }
 
         // POST: Teams/Edit/5
@@ -108,7 +108,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(team);
+            return View("~/Views/AdminPanel/Teams/Edit.cshtml", team);
         }
 
         // GET: Teams/Delete/5
@@ -126,7 +126,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(team);
+            return View("~/Views/AdminPanel/Teams/Delete.cshtml", team);
         }
 
         // POST: Teams/Delete/5

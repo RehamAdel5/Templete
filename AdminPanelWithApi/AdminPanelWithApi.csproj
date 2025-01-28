@@ -8,12 +8,12 @@
 
 	</PropertyGroup>
   <ItemGroup>
-    <None Include="Views\Home\Index.cshtml" />
-    <None Include="Views\Home\Privacy.cshtml" />
-    <None Include="Views\Partners\Create.cshtml" />
-    <None Include="Views\Partners\Delete.cshtml" />
-    <None Include="Views\Partners\Edit.cshtml" />
-    <None Include="Views\Partners\Index.cshtml" />
+    <None Include="Views\AdminPanel\Home\Index.cshtml" />
+    <None Include="Views\AdminPanel\Home\Privacy.cshtml" />
+    <None Include="Views\AdminPanel\Partners\Create.cshtml" />
+    <None Include="Views\AdminPanel\Partners\Delete.cshtml" />
+    <None Include="Views\AdminPanel\Partners\Edit.cshtml" />
+    <None Include="Views\AdminPanel\Partners\Index.cshtml" />
     <None Include="Views\Shared\Error.cshtml" />
     <None Include="Views\Shared\_LayoutDashBoard.cshtml" />
     <None Include="Views\Shared\_LoginPartial.cshtml" />

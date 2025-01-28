@@ -17,7 +17,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: Requests
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Requests.ToListAsync());
+            return View("~/Views/AdminPanel/Requests/Index.cshtml", await _context.Requests.ToListAsync());
         }
 
         // GET: Requests/Details/5
@@ -35,13 +35,13 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(request);
+            return View("~/Views/AdminPanel/Requests/Details.cshtml", request);
         }
 
         // GET: Requests/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/Requests/Create.cshtml");
         }
 
         // POST: Requests/Create
@@ -57,7 +57,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(request);
+            return View("~/Views/AdminPanel/Requests/Create.cshtml", request);
         }
 
         // GET: Requests/Edit/5
@@ -73,7 +73,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(request);
+            return View("~/Views/AdminPanel/Requests/Edit.cshtml", request);
         }
 
         // POST: Requests/Edit/5
@@ -108,7 +108,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(request);
+            return View("~/Views/AdminPanel/Requests/Edit.cshtml", request);
         }
 
         // GET: Requests/Delete/5
@@ -126,7 +126,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(request);
+            return View("~/Views/AdminPanel/Requests/Delete.cshtml", request);
         }
 
         // POST: Requests/Delete/5

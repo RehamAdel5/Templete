@@ -17,7 +17,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: CompanyInformations
         public async Task<IActionResult> Index()
         {
-            return View(await _context.CompanyInformation.ToListAsync());
+            return View("~/Views/AdminPanel/CompanyInformations/Index.cshtml",await _context.CompanyInformation.ToListAsync());
         }
 
         // GET: CompanyInformations/Details/5
@@ -35,13 +35,13 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(companyInformation);
+            return View("~/Views/AdminPanel/CompanyInformations/Details.cshtml",companyInformation);
         }
 
         // GET: CompanyInformations/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/CompanyInformations/Create.cshtml");
         }
 
         // POST: CompanyInformations/Create
@@ -57,7 +57,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(companyInformation);
+            return View("~/Views/AdminPanel/CompanyInformations/Create.cshtml",companyInformation);
         }
 
         // GET: CompanyInformations/Edit/5
@@ -73,7 +73,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(companyInformation);
+            return View("~/Views/AdminPanel/CompanyInformations/Edit.cshtml",companyInformation);
         }
 
         // POST: CompanyInformations/Edit/5
@@ -108,7 +108,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(companyInformation);
+            return View("~/Views/AdminPanel/CompanyInformations/Edit.cshtml",companyInformation);
         }
 
         // GET: CompanyInformations/Delete/5
@@ -126,7 +126,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(companyInformation);
+            return View("~/Views/AdminPanel/CompanyInformations/Delete.cshtml",companyInformation);
         }
 
         // POST: CompanyInformations/Delete/5

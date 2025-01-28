@@ -19,7 +19,7 @@ namespace AdminPanelWithApi.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Features.Include(f => f.Pricing);
-            return View(await applicationDbContext.ToListAsync());
+            return View("~/Views/AdminPanel/Features/Index.cshtml", await applicationDbContext.ToListAsync());
         }
 
         // GET: Features/Details/5
@@ -38,14 +38,14 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(features);
+            return View("~/Views/AdminPanel/Features/Details.cshtml",features);
         }
 
         // GET: Features/Create
         public IActionResult Create()
         {
             ViewData["PricingId"] = new SelectList(_context.Pricings, "Id", "Id");
-            return View();
+            return View("~/Views/AdminPanel/Features/Create.cshtml");
         }
 
         // POST: Features/Create
@@ -62,7 +62,7 @@ namespace AdminPanelWithApi.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["PricingId"] = new SelectList(_context.Pricings, "Id", "Id", features.PricingId);
-            return View(features);
+            return View("~/Views/AdminPanel/Features/Create.cshtml",features);
         }
 
         // GET: Features/Edit/5
@@ -79,7 +79,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
             ViewData["PricingId"] = new SelectList(_context.Pricings, "Id", "Id", features.PricingId);
-            return View(features);
+            return View("~/Views/AdminPanel/Features/Edit.cshtml",features);
         }
 
         // POST: Features/Edit/5
@@ -115,7 +115,7 @@ namespace AdminPanelWithApi.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["PricingId"] = new SelectList(_context.Pricings, "Id", "Id", features.PricingId);
-            return View(features);
+            return View("~/Views/AdminPanel/Features/Edit.cshtml",features);
         }
 
         // GET: Features/Delete/5
@@ -134,7 +134,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(features);
+            return View("~/Views/AdminPanel/Features/Delete.cshtml",features);
         }
 
         // POST: Features/Delete/5

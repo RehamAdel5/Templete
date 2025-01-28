@@ -23,7 +23,7 @@ namespace AdminPanelWithApi.Controllers
             } 
             ViewBag.ProjectImages = projectDetails.ProjectImages;
             
-            return View(projectDetails);
+            return View("~/Views/AdminPanel/ProjectDetails/Index.cshtml", projectDetails);
         }
     }
 }

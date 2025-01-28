@@ -18,14 +18,14 @@ namespace AdminPanelWithApi.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Tags.AsNoTracking();
-            return View(await applicationDbContext.ToListAsync());
+            return View("~/Views/AdminPanel/Tags/Index.cshtml", await applicationDbContext.ToListAsync());
         }
         
 
         // GET: Tags/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/Tags/Create.cshtml");
         }
 
         // POST: Tags/Create
@@ -42,7 +42,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(tag);
+            return View("~/Views/AdminPanel/Tags/Create.cshtml", tag);
         }
 
         // GET: Tags/Edit/5
@@ -58,7 +58,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(tag);
+            return View("~/Views/AdminPanel/Tags/Edit.cshtml", tag);
         }
 
         // POST: Tags/Edit/5
@@ -93,7 +93,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(tag);
+            return View("~/Views/AdminPanel/Tags/Edit.cshtml", tag);
         }
 
         // GET: Tags/Delete/5
@@ -111,7 +111,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(tag);
+            return View("~/Views/AdminPanel/Tags/Delete.cshtml", tag);
         }
 
         // POST: Tags/Delete/5

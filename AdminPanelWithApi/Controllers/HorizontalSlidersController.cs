@@ -17,7 +17,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: HorizontalSliders
         public async Task<IActionResult> Index()
         {
-            return View(await _context.HorizontalSliders.ToListAsync());
+            return View("~/Views/AdminPanel/HorizontalSliders/Index.cshtml", await _context.HorizontalSliders.ToListAsync());
         }
 
         // GET: HorizontalSliders/Details/5
@@ -35,13 +35,13 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(horizontalSlider);
+            return View("~/Views/AdminPanel/HorizontalSliders/Details.cshtml",horizontalSlider);
         }
 
         // GET: HorizontalSliders/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/HorizontalSliders/Create.cshtml");
         }
 
         // POST: HorizontalSliders/Create
@@ -57,7 +57,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(horizontalSlider);
+            return View("~/Views/AdminPanel/HorizontalSliders/Create.cshtml", horizontalSlider);
         }
 
         // GET: HorizontalSliders/Edit/5
@@ -73,7 +73,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(horizontalSlider);
+            return View("~/Views/AdminPanel/HorizontalSliders/Edit.cshtml", horizontalSlider);
         }
 
         // POST: HorizontalSliders/Edit/5
@@ -108,7 +108,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(horizontalSlider);
+            return View("~/Views/AdminPanel/HorizontalSliders/Edit.cshtml", horizontalSlider);
         }
 
         // GET: HorizontalSliders/Delete/5
@@ -126,7 +126,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(horizontalSlider);
+            return View("~/Views/AdminPanel/HorizontalSliders/Delete.cshtml", horizontalSlider);
         }
 
         // POST: HorizontalSliders/Delete/5

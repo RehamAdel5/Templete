@@ -19,7 +19,7 @@ namespace AdminPanelWithApi.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.ProjectImages.Include(p => p.Project);
-            return View(await applicationDbContext.ToListAsync());
+            return View("~/Views/AdminPanel/ProjectImages/Index.cshtml", await applicationDbContext.ToListAsync());
         }
 
         // GET: ProjectImages/Details/5
@@ -38,14 +38,14 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(projectImage);
+            return View("~/Views/AdminPanel/ProjectImages/Details.cshtml", projectImage);
         }
 
         // GET: ProjectImages/Create
         public IActionResult Create()
         {
             ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id");
-            return View();
+            return View("~/Views/AdminPanel/ProjectImages/Create.cshtml");
         }
 
         // POST: ProjectImages/Create
@@ -62,7 +62,7 @@ namespace AdminPanelWithApi.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id", projectImage.ProjectId);
-            return View(projectImage);
+            return View("~/Views/AdminPanel/ProjectImages/Create.cshtml", projectImage);
         }
 
         // GET: ProjectImages/Edit/5
@@ -79,7 +79,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
             ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id", projectImage.ProjectId);
-            return View(projectImage);
+            return View("~/Views/AdminPanel/ProjectImages/Edit.cshtml", projectImage);
         }
 
         // POST: ProjectImages/Edit/5
@@ -115,7 +115,7 @@ namespace AdminPanelWithApi.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id", projectImage.ProjectId);
-            return View(projectImage);
+            return View("~/Views/AdminPanel/ProjectImages/Edit.cshtml", projectImage);
         }
 
         // GET: ProjectImages/Delete/5
@@ -134,7 +134,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(projectImage);
+            return View("~/Views/AdminPanel/ProjectImages/Delete.cshtml", projectImage);
         }
 
         // POST: ProjectImages/Delete/5

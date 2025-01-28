@@ -23,7 +23,7 @@ namespace AdminPanelWithApi.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.ProjectDetails.Include(p => p.Project).Include(p => p.Testimonial);
-            return View(await applicationDbContext.ToListAsync());
+            return View("~/Views/AdminPanel/ProjectDetail/Index.cshtml", await applicationDbContext.ToListAsync());
         }
 
         // GET: ProjectDetail/Details/5
@@ -43,7 +43,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(projectDetails);
+            return View("~/Views/AdminPanel/ProjectDetail/Details.cshtml", projectDetails);
         }
 
         // GET: ProjectDetail/Create
@@ -51,7 +51,7 @@ namespace AdminPanelWithApi.Controllers
         {
             ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Bio");
             ViewData["TestimonialId"] = new SelectList(_context.Testimonials, "Id", "ClientOpinion");
-            return View();
+            return View("~/Views/AdminPanel/ProjectDetail/Create.cshtml");
         }
 
         // POST: ProjectDetail/Create
@@ -69,7 +69,7 @@ namespace AdminPanelWithApi.Controllers
             }
             ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Bio", projectDetails.ProjectId);
             ViewData["TestimonialId"] = new SelectList(_context.Testimonials, "Id", "ClientOpinion", projectDetails.TestimonialId);
-            return View(projectDetails);
+            return View("~/Views/AdminPanel/ProjectDetail/Create.cshtml", projectDetails);
         }
 
         // GET: ProjectDetail/Edit/5
@@ -87,7 +87,7 @@ namespace AdminPanelWithApi.Controllers
             }
             ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Bio", projectDetails.ProjectId);
             ViewData["TestimonialId"] = new SelectList(_context.Testimonials, "Id", "ClientOpinion", projectDetails.TestimonialId);
-            return View(projectDetails);
+            return View("~/Views/AdminPanel/ProjectDetail/Edit.cshtml", projectDetails);
         }
 
         // POST: ProjectDetail/Edit/5
@@ -124,7 +124,7 @@ namespace AdminPanelWithApi.Controllers
             }
             ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Bio", projectDetails.ProjectId);
             ViewData["TestimonialId"] = new SelectList(_context.Testimonials, "Id", "ClientOpinion", projectDetails.TestimonialId);
-            return View(projectDetails);
+            return View("~/Views/AdminPanel/ProjectDetail/Edit.cshtml", projectDetails);
         }
 
         // GET: ProjectDetail/Delete/5
@@ -144,7 +144,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(projectDetails);
+            return View("~/Views/AdminPanel/ProjectDetail/Delete.cshtml", projectDetails);
         }
 
         // POST: ProjectDetail/Delete/5

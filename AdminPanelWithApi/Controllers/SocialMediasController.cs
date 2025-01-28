@@ -16,7 +16,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: SocialMedias
         public async Task<IActionResult> Index()
         {
-            return View(await _context.SocialMedias.ToListAsync());
+            return View("~/Views/AdminPanel/SocialMedias/Index.cshtml", await _context.SocialMedias.ToListAsync());
         }
 
        
@@ -24,7 +24,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: SocialMedias/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/SocialMedias/Create.cshtml");
         }
 
         // POST: SocialMedias/Create
@@ -41,7 +41,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(socialMedia);
+            return View("~/Views/AdminPanel/SocialMedias/Create.cshtml", socialMedia);
         }
 
         // GET: SocialMedias/Edit/5
@@ -57,7 +57,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(socialMedia);
+            return View("~/Views/AdminPanel/SocialMedias/Edit.cshtml", socialMedia);
         }
 
         // POST: SocialMedias/Edit/5
@@ -92,7 +92,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(socialMedia);
+            return View("~/Views/AdminPanel/SocialMedias/Edit.cshtml", socialMedia);
         }
 
         // GET: SocialMedias/Delete/5
@@ -110,7 +110,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(socialMedia);
+            return View("~/Views/AdminPanel/SocialMedias/Delete.cshtml", socialMedia);
         }
 
         // POST: SocialMedias/Delete/5

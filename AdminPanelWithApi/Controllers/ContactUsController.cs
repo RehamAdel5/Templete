@@ -16,7 +16,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: ContactUs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ContactUs.ToListAsync());
+            return View("~/Views/AdminPanel/ContactUs/Index.cshtml",await _context.ContactUs.ToListAsync());
         }
 
         // GET: ContactUs/Delete/5
@@ -34,7 +34,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(contactUs);
+            return View("~/Views/AdminPanel/ContactUs/Delete.cshtml",contactUs);
         }
 
         // POST: ContactUs/Delete/5
@@ -59,7 +59,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
             var contactUs = await _context.ContactUs.FirstOrDefaultAsync(item=>item.Id == id);
-            return View(contactUs);
+            return View("~/Views/AdminPanel/ContactUs/Details.cshtml",contactUs);
         }
     }
 }

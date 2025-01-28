@@ -25,7 +25,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: Services
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Services.ToListAsync());
+            return View("~/Views/AdminPanel/Services/Index.cshtml", await _context.Services.ToListAsync());
         }
 
        
@@ -33,7 +33,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: Services/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/Services/Create.cshtml");
         }
 
         // POST: Services/Create
@@ -53,7 +53,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(service);
+            return View("~/Views/AdminPanel/Services/Create.cshtml", service);
         }
 
         // GET: Services/Edit/5
@@ -69,7 +69,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(service);
+            return View("~/Views/AdminPanel/Services/Edit.cshtml", service);
         }
 
         // POST: Services/Edit/5
@@ -111,7 +111,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(service);
+            return View("~/Views/AdminPanel/Services/Edit.cshtml", service);
         }
 
         // GET: Services/Delete/5
@@ -129,7 +129,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(service);
+            return View("~/Views/AdminPanel/Services/Delete.cshtml", service);
         }
 
         // POST: Services/Delete/5

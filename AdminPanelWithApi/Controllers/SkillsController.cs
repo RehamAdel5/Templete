@@ -17,7 +17,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: Skills
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Skills.ToListAsync());
+            return View("~/Views/AdminPanel/Skills/Index.cshtml", await _context.Skills.ToListAsync());
         }
 
         // GET: Skills/Details/5
@@ -35,13 +35,13 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(skill);
+            return View("~/Views/AdminPanel/Skills/Details.cshtml", skill);
         }
 
         // GET: Skills/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/Skills/Create.cshtml");
         }
 
         // POST: Skills/Create
@@ -57,7 +57,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(skill);
+            return View("~/Views/AdminPanel/Skills/Create.cshtml", skill);
         }
 
         // GET: Skills/Edit/5
@@ -73,7 +73,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(skill);
+            return View("~/Views/AdminPanel/Skills/Edit.cshtml", skill);
         }
 
         // POST: Skills/Edit/5
@@ -108,7 +108,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(skill);
+            return View("~/Views/AdminPanel/Skills/Edit.cshtml", skill);
         }
 
         // GET: Skills/Delete/5
@@ -126,7 +126,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(skill);
+            return View("~/Views/AdminPanel/Skills/Delete.cshtml", skill);
         }
 
         // POST: Skills/Delete/5

@@ -19,7 +19,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: ProjectCategories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ProjectCategories.ToListAsync());
+            return View("~/Views/AdminPanel/ProjectCategories/Index.cshtml", await _context.ProjectCategories.ToListAsync());
         }
 
         // GET: ProjectCategories/Details/5
@@ -37,13 +37,13 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(projectCategory);
+            return View("~/Views/AdminPanel/ProjectCategories/Details.cshtml", projectCategory);
         }
 
         // GET: ProjectCategories/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/ProjectCategories/Create.cshtml");
         }
 
         // POST: ProjectCategories/Create
@@ -59,7 +59,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(projectCategory);
+            return View("~/Views/AdminPanel/ProjectCategories/Create.cshtml", projectCategory);
         }
 
         // GET: ProjectCategories/Edit/5
@@ -75,7 +75,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(projectCategory);
+            return View("~/Views/AdminPanel/ProjectCategories/Edit.cshtml", projectCategory);
         }
 
         // POST: ProjectCategories/Edit/5
@@ -110,7 +110,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(projectCategory);
+            return View("~/Views/AdminPanel/ProjectCategories/Edit.cshtml", projectCategory);
         }
 
         // GET: ProjectCategories/Delete/5
@@ -128,7 +128,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(projectCategory);
+            return View("~/Views/AdminPanel/ProjectCategories/Delete.cshtml", projectCategory);
         }
 
         // POST: ProjectCategories/Delete/5

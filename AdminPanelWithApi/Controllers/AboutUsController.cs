@@ -6,6 +6,7 @@ using Domain.Abstractions;
 
 namespace AdminPanelWithApi.Controllers
 {
+   
     public class AboutUsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -18,7 +19,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: AboutUs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.AboutUs.ToListAsync());
+            return View("~/Views/AdminPanel/AboutUs/Index.cshtml",await _context.AboutUs.ToListAsync());
         }
 
         // GET: AboutUs/Details/5
@@ -36,13 +37,13 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(AboutUs);
+            return View("~/Views/AdminPanel/AboutUs/Details.cshtml",AboutUs);
         }
 
         // GET: AboutUs/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/AboutUs/Create.cshtml");
         }
 
         // POST: AboutUs/Create
@@ -58,7 +59,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(AboutUs);
+            return View("~/Views/AdminPanel/AboutUs/Create.cshtml",AboutUs);
         }
 
         // GET: AboutUs/Edit/5
@@ -74,7 +75,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(AboutUs);
+            return View("~/Views/AdminPanel/AboutUs/Edit.cshtml", AboutUs);
         }
 
         // POST: AboutUs/Edit/5
@@ -109,7 +110,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(AboutUs);
+            return View("~/Views/AdminPanel/AboutUs/Edit.cshtml", AboutUs);
         }
 
         // GET: AboutUs/Delete/5
@@ -127,7 +128,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(AboutUs);
+            return View("~/Views/AdminPanel/AboutUs/Delete.cshtml", AboutUs);
         }
 
         // POST: AboutUs/Delete/5

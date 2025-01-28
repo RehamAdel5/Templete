@@ -24,7 +24,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: SiteContents
         public async Task<IActionResult> Index()
         {
-            return View(await _context.SiteContents.ToListAsync());
+            return View("~/Views/AdminPanel/SiteContents/Index.cshtml", await _context.SiteContents.ToListAsync());
         }
 
        
@@ -32,7 +32,7 @@ namespace AdminPanelWithApi.Controllers
         // GET: SiteContents/Create
         public IActionResult Create()
         {
-            return View();
+            return View("~/Views/AdminPanel/SiteContents/Create.cshtml");
         }
 
         // POST: SiteContents/Create
@@ -56,7 +56,7 @@ namespace AdminPanelWithApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(siteContent);
+            return View("~/Views/AdminPanel/SiteContents/Create.cshtml", siteContent);
         }
 
         // GET: SiteContents/Edit/5
@@ -72,7 +72,7 @@ namespace AdminPanelWithApi.Controllers
             {
                 return NotFound();
             }
-            return View(siteContent);
+            return View("~/Views/AdminPanel/SiteContents/Edit.cshtml", siteContent);
         }
 
         // POST: SiteContents/Edit/5
@@ -117,7 +117,7 @@ namespace AdminPanelWithApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(siteContent);
+            return View("~/Views/AdminPanel/SiteContents/Edit.cshtml", siteContent);
         }
 
         // GET: SiteContents/Delete/5
@@ -135,7 +135,7 @@ namespace AdminPanelWithApi.Controllers
                 return NotFound();
             }
 
-            return View(siteContent);
+            return View("~/Views/AdminPanel/SiteContents/Delete.cshtml", siteContent);
         }
 
         // POST: SiteContents/Delete/5
