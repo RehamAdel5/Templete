@@ -4,7 +4,7 @@ using Application.GenericCrudDto.Service;
 using Application.GenericCrudDto.SiteContant;
 using Application.GenericCrudDto.SocialMedia;
 using Application.GenericCrudDto.Tag;
-using Application.Handeler.CQRS.ProjectDetails.Queries;
+using Application.Handeler.Queries.ProjectDetails.Queries;
 using AutoMapper;
 using Domain.Entities;
 using Domain.ViewModels;

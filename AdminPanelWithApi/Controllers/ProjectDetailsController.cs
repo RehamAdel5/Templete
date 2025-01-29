@@ -1,4 +1,4 @@
-﻿using Application.Handeler.CQRS.ProjectDetails.Queries;
+﻿using Application.Handeler.Queries.ProjectDetails.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

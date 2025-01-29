@@ -7,21 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Handlers\Commands\AboutUs\Commands\" />
+    <Folder Include="Handlers\Commands\AskedQuestion\Commands\" />
     <Folder Include="Handlers\Commands\Auth\DeleteUser\" />
     <Folder Include="Handlers\Commands\Auth\Logout\" />
-    <Folder Include="Handlers\CQRS\AboutUs\Commands\" />
-    <Folder Include="Handlers\CQRS\AskedQuestion\Commands\" />
-    <Folder Include="Handlers\CQRS\ContactUs\Commands\" />
-    <Folder Include="Handlers\CQRS\Features\Commands\" />
-    <Folder Include="Handlers\CQRS\HorizontalSlider\Commands\" />
-    <Folder Include="Handlers\CQRS\ProjectCategory\Commands\" />
-    <Folder Include="Handlers\CQRS\ProjectDetails\Commands\" />
-    <Folder Include="Handlers\CQRS\Project\Commands\" />
-    <Folder Include="Handlers\CQRS\Service\Commands\" />
-    <Folder Include="Handlers\CQRS\Skills\Commands\" />
-    <Folder Include="Handlers\CQRS\Team\Commands\" />
-    <Folder Include="Handlers\CQRS\Testimonial\Commands\" />
-    <Folder Include="Handlers\CQRS\WhyUs\Commands\" />
+    <Folder Include="Handlers\Commands\ContactUs\Commands\" />
+    <Folder Include="Handlers\Commands\Features\Commands\" />
+    <Folder Include="Handlers\Commands\HorizontalSlider\Commands\" />
+    <Folder Include="Handlers\Commands\ProjectCategory\Commands\" />
+    <Folder Include="Handlers\Commands\ProjectDetails\Commands\" />
+    <Folder Include="Handlers\Commands\Project\Commands\" />
+    <Folder Include="Handlers\Commands\Service\Commands\" />
+    <Folder Include="Handlers\Commands\Skills\Commands\" />
+    <Folder Include="Handlers\Commands\Team\Commands\" />
+    <Folder Include="Handlers\Commands\Testimonial\Commands\" />
+    <Folder Include="Handlers\Commands\WhyUs\Commands\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Persistence.Data
 {
@@ -21,9 +22,18 @@ namespace Infrastructure.Persistence.Data
         public ApplicationDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            optionsBuilder.UseSqlServer("Server=DESKTOP-1RHRIEA;Database=TemplateDb;User Id=myNewUser;password=12345;TrustServerCertificate=True;MultipleActiveResultSets=true;");
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json")
+            .Build();
 
-            return new ApplicationDbContext(optionsBuilder.Options,_cache);
+            // Get the connection string
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            // Use the connection string
+            optionsBuilder.UseSqlServer(connectionString);
+
+            return new ApplicationDbContext(optionsBuilder.Options, _cache);
         }
     }
 }
